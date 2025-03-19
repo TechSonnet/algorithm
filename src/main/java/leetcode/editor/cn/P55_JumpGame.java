@@ -91,15 +91,15 @@ class Solution {
 //        return isReached;
 //    }
 //
-//    boolean dp(int[] nums, int location){
+//    boolean dp(int[] nums, int position){
 //
-//        if (location == nums.length - 1){
+//        if (position == nums.length - 1){
 //            return true;
 //        }
 //
-//        for (int i = 1; i < nums[location]+1; i++) {
+//        for (int i = 1; i < nums[position]+1; i++) {
 //
-//            boolean subProblem = dp(nums, location + i);
+//            boolean subProblem = dp(nums, position + i);
 //
 //            if (subProblem){
 //                return true;
