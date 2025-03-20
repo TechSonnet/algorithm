@@ -98,40 +98,71 @@ public class P45_JumpGameIi{
 //	}
 //}
 
+//	class Solution {
+//
+//		// 动态规划解法（备忘录解法）
+//
+//		int[] memo;
+//
+//		public int jump(int[] nums) {
+//
+//			memo = new int[nums.length];
+//			// 这里使用 Integer.MAX_VALUE - 100 是很冒险的，一开始用了 Integer.MAX_VALUE ，直接溢出了
+//			Arrays.fill(memo, Integer.MAX_VALUE - 100);
+//			int res = dp(nums, 0);
+//
+//			return res;
+//		}
+//
+//		int dp(int[] nums, int position){
+//
+//			if (position >= nums.length - 1){
+//				return 0;
+//			}
+//
+//			if (memo[position] != Integer.MAX_VALUE - 100){
+//				return memo[position];
+//			}
+//
+//			for (int i = 1; i <= nums[position]; i++) {
+//
+//				int subProblem = dp(nums, position + i);
+//				memo[position] = Math.min(memo[position], subProblem + 1);
+//
+//			}
+//			return memo[position];
+//		}
+//	}
+
 	class Solution {
 
-		// 动态规划解法（备忘录解法）
-
-		int[] memo;
+		// 贪心解法
 
 		public int jump(int[] nums) {
 
-			memo = new int[nums.length];
-			// 这里使用 Integer.MAX_VALUE - 100 是很冒险的，一开始用了 Integer.MAX_VALUE ，直接溢出了
-			Arrays.fill(memo, Integer.MAX_VALUE - 100);
-			int res = dp(nums, 0);
+			int n = nums.length;
+			int end = 0, farthest = 0;
+			int jumps = 0;
 
-			return res;
+			/**
+			 * 可以这么理解，每次跳一次之后，即在可能到达的范围内进行探索（for循环探索）
+			 * 寻找可能到达范围内的最大元素（ i ==end），然后跳过去
+			 */
+			for (int i = 0; i < n - 1; i++) {
+
+				farthest = Math.max(i + nums[i], farthest);
+
+				if (i == end){
+					end = farthest;
+					jumps++;
+
+				}
+
+			}
+
+			return jumps;
 		}
 
-		int dp(int[] nums, int position){
-
-			if (position >= nums.length - 1){
-				return 0;
-			}
-
-			if (memo[position] != Integer.MAX_VALUE - 100){
-				return memo[position];
-			}
-
-			for (int i = 1; i <= nums[position]; i++) {
-
-				int subProblem = dp(nums, position + i);
-				memo[position] = Math.min(memo[position], subProblem + 1);
-
-			}
-			return memo[position];
-		}
 	}
 //leetcode submit region end(Prohibit modification and deletion)
 
