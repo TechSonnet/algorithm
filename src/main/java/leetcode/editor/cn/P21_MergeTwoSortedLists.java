@@ -118,6 +118,8 @@ class Solution {
 	// 但是，这样的缺点在于，链表的切换会很麻烦
 	// 因此，能使用 dummy 还是要用，有点类似于空间换时间的感觉
 
+	// 实际上，虚拟头结点 dummy 可以视为一个技巧
+
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
 		ListNode dummy = new ListNode(-1);
