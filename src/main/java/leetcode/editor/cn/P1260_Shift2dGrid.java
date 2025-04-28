@@ -144,10 +144,12 @@ class Solution {
 	}
 
 	private void set(int[][] grid, int index, int val){
+
 		int n = grid[0].length;
 		int i = index / n;
 		int j = index % n;
 		grid[i][j] = val;
+
 	}
 }
 //leetcode submit region end(Prohibit modification and deletion)
