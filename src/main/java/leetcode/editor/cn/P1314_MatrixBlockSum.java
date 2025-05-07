@@ -72,6 +72,7 @@ class Solution {
 
 		for (int i = 0; i < m; i++){
 			for (int j = 0; j < n; j++){
+				// 通过 min, max 函数避免索引越界的技巧，不仅优雅，而且常用
 				int x1 = Math.max(i - k, 0);
 				int y1 = Math.max(j - k, 0);
 				int x2 = Math.min(i + k, m - 1);
