@@ -76,8 +76,12 @@ class Solution {
 			preSum[i] = preSum[i - 1] + nums[i - 1];
 
 			// 避免余数为 负数
+			// 此处求非负余数的方式也要好好学习
 			int curReminder = ((preSum[i] % k) + k ) % k;
 
+
+			// 注意这一段代码的写法，可以和 560 题目相似的代码逻辑进行对比
+			// 此处会更加的简洁，更加的有逻辑和条理
 			if (reminderToCount.containsKey(curReminder)){
 
 				res += reminderToCount.get(curReminder);
