@@ -43,7 +43,7 @@
 //
 // Related Topics设计 | 队列 | 数组 | 链表 
 //
-// 👍 572, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
+// 👍 571, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
 //
 //
 //
@@ -55,12 +55,11 @@ package leetcode.editor.cn;
 /**
  * 设计循环队列
  * @author Chang Liu
- * @date 2025-10-27 10:56:47
+ * @date 2025-10-25 10:05:18
  */
 public class P622_DesignCircularQueue{
 	 public static void main(String[] args) {
 	     //测试代码
-
 	 }
 	 
 //力扣代码
@@ -72,27 +71,33 @@ class MyCircularQueue {
     }
     
     public boolean enQueue(int value) {
-        
+
+        return false;
     }
     
     public boolean deQueue() {
-        
+
+        return false;
     }
     
     public int Front() {
-        
+
+        return 0;
     }
     
     public int Rear() {
-        
+
+        return 0;
     }
     
     public boolean isEmpty() {
-        
+
+        return false;
     }
     
     public boolean isFull() {
-        
+
+        return false;
     }
 }
 
