@@ -60,44 +60,81 @@ package leetcode.editor.cn;
 public class P622_DesignCircularQueue{
 	 public static void main(String[] args) {
 	     //测试代码
+
 	 }
 	 
 //力扣代码
 //leetcode submit region begin(Prohibit modification and deletion)
-class MyCircularQueue {
+
+    /**
+     * 这是一道非常有意思，也非常具有借鉴意义的题目
+     * 注意下面的写法，这是一种设计数据结构的写法，属性、方法等如何设置，都是很有借鉴意义的
+     * 当然，这道题目中如何世界循环队列还是有一定借鉴意义的。
+     */
+    class MyCircularQueue {
+
+        // 定义合适的属性
+        int front = 0;
+        int rear = 0;
+        int cap = 0;
+        int[] myArray = {};
+
 
     public MyCircularQueue(int k) {
-        
+
+        // 这里设置数组的 cap 为 k+1, 这样做可以更好的判断队空和队满
+        // 队空：rear = front
+        // 队满：(rear + 1) % cap == front
+        this.cap = k + 1;
+        this.myArray = new int[cap];
+
     }
     
     public boolean enQueue(int value) {
+
+        if (!isFull()){
+            rear = (rear + 1) % cap;
+            myArray[rear] = value;
+            return true;
+        }
 
         return false;
     }
     
     public boolean deQueue() {
-
+        if (!isEmpty()){
+            front = (front+1) % cap;
+            return true;
+        }
         return false;
     }
     
     public int Front() {
 
-        return 0;
+        if (isEmpty()){
+            return -1;
+        }
+
+        return myArray[(front + 1) % cap];
     }
     
     public int Rear() {
 
-        return 0;
+        if (isEmpty()){
+            return -1;
+        }
+
+        return myArray[rear];
     }
     
     public boolean isEmpty() {
 
-        return false;
+        return front == rear;
     }
     
     public boolean isFull() {
 
-        return false;
+        return (rear + 1) % cap == front;
     }
 }
 
