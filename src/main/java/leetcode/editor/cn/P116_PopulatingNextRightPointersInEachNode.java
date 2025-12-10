@@ -65,6 +65,9 @@
 
 package leetcode.editor.cn;
 
+
+import leetcode.editor.cn.structure.Node;
+
 /**
  * 填充每个节点的下一个右侧节点指针
  * @author Chang Liu
@@ -103,7 +106,9 @@ class Node {
 
 class Solution {
     public Node connect(Node root) {
-        
+
+		return null;
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

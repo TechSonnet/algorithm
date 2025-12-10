@@ -1,6 +1,6 @@
 package leetcode.editor.cn.structure;
 
-class Node {
+public class Node {
     public int val;
     public Node left;
     public Node right;
