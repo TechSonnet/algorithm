@@ -47,6 +47,7 @@
 
 package leetcode.editor.cn;
 
+
 import leetcode.editor.cn.structure.TreeNode;
 
 /**
@@ -82,6 +83,7 @@ class Solution {
 
         traverse(root);
         return root;
+
     }
 
     // 思路一：遍历一遍解决问题
@@ -103,7 +105,23 @@ class Solution {
     }
 
     // 思路二：拆解问题，使用分治策略
+    TreeNode invertTree2(TreeNode root){
+
+        if (root == null){
+            return root;
+        }
+
+        TreeNode left = invertTree2(root.left);
+       TreeNode right = invertTree2(root.right);
+
+        root.left = right;
+        root.right = left;
+
+        return root;
+    }
+
 }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
