@@ -107,9 +107,32 @@ class Node {
 class Solution {
     public Node connect(Node root) {
 
-		return null;
+		if(root != null){
+			return null;
+		}
+
+		// 遍历解决问题
+		traverse(root.left, root.right);
+
+		return root;
 
     }
+
+	private void traverse(Node node1, Node node2){
+
+		if (node1 == null || node2 == null){
+			return;
+		}
+
+		// // 每个节点的操作（前序）
+		node1.next = node2;
+		traverse(node1.right, node2.left);
+
+		traverse(node1.left, node1.right);
+		traverse(node2.left, node2.right);
+
+	}
+
 }
 //leetcode submit region end(Prohibit modification and deletion)
 
